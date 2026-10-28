@@ -1,0 +1,13 @@
+---
+description: Order FSM, catalog, no fake proxies
+alwaysApply: true
+---
+
+# Architecture
+
+- Orders follow FSM: Draft → AwaitingPayment → Paid → Provisioned → Active → Expired | Revoked.
+- Deliver a proxy link only after `Paid`. Never invent IPs, ports, or secrets (no seeded/random “fake fleet”).
+- Catalog slots are real: admin-pasted `t.me/proxy` links or later telemt-managed users.
+- Prefer vertical slices: catalog → payment → provision → renew. Keep mtproto secret parsing in `packages/mtproto` (or `apps/bot/mtproto`).
+- For channel-sponsor (ad_tag): use telemt or official MTProxy — not mtg v2 (ad_tag removed).
+- Prefer Crypto Pay + admin manual credit for v1; Stars later.

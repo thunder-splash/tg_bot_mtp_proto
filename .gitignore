@@ -1,0 +1,52 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# Bot runtime data
+apps/bot/data/
+*.db
+*.db-journal
+*.sqlite3
+
+# Node / web
+apps/web/node_modules/
+apps/web/dist/
+apps/web/.vite/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Vendor dump (reference only, not product)
+_vendor_workspace/
+*.zip
+n36teikspGPiYOw0-grok-workspace.zip
+
+# Built landing
+apps/web/dist/
+apps/web/tsconfig.tsbuildinfo
+
+# Logs
+*.log
+logs/

@@ -1,0 +1,13 @@
+---
+description: Sales copy and buyable bot UX
+alwaysApply: true
+---
+
+# Sales UX
+
+- Lead with: one-tap connect + channel stays at the top of chats while connected.
+- Base price ~299 ₽ / month; offer 1 / 3 / 12 month plans.
+- After payment: one primary button «Подключить» (`tg://proxy` URL), not a wall of hex.
+- «Мои прокси»: status, days left, renew, sponsor guide.
+- Landing is a storefront with CTA into the bot (`?start=site`). Never issue proxies in the browser.
+- Tone: short, premium, concrete. No fake “online fleet” counters.

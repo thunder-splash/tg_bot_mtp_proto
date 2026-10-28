@@ -1,0 +1,29 @@
+# Example telemt config — copy to config/config.toml (gitignored).
+# Generate user secret: openssl rand -hex 16
+# Prefer a popular HTTPS domain for FakeTLS, e.g. www.cloudflare.com
+
+[general]
+use_middle_proxy = true
+# ad_tag from @MTProxybot (32 hex). Required for sponsored channel.
+# ad_tag = "0123456789abcdef0123456789abcdef"
+
+[general.modes]
+classic = false
+secure = false
+tls = true
+
+[server]
+port = 443
+
+[censorship]
+tls_domain = "www.cloudflare.com"
+mask = true
+tls_emulation = true
+
+[access.users]
+# "buyer1" = "32_hex_secret_here"
+shop = "00000000000000000000000000000000"
+
+# Optional per-user sponsored tags:
+# [access.user_ad_tags]
+# shop = "0123456789abcdef0123456789abcdef"

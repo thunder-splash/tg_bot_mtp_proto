@@ -1,0 +1,31 @@
+# Telemt MTProto node (FakeTLS + ad_tag).
+# Upstream: https://github.com/telemt/telemt
+#
+# 1. Copy config.example.toml → config/config.toml and edit secrets / tls_domain / IP
+# 2. docker compose up -d --build
+# 3. Open published 443; register with @MTProxybot using the 32-hex user secret
+
+services:
+  telemt:
+    image: ghcr.io/telemt/telemt:latest
+    container_name: telemt
+    restart: unless-stopped
+    ports:
+      - "443:443"
+    volumes:
+      - ./config:/etc/telemt:rw
+    tmpfs:
+      - /run/telemt:rw,mode=1777,size=4m
+    working_dir: /run/telemt
+    read_only: true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    environment:
+      RUST_LOG: info
+    command: ["/etc/telemt/config.toml"]
